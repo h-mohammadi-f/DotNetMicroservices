@@ -1,0 +1,29 @@
+*****************************Section 2***************************************************
+1- Create an Empty solution.
+2- Create a new folder with the name of FrontEnd
+3- Create a new project in the FrontEnd folder as type "ASP.NET Core Web App (Model-View-Controller) and call it Mango.Web
+4- Create another folder with the name of Services and add a new ASP.NET Core Web API project. Call this new project as Mango.Services.ProductAPI
+5- Right click on the project file and edit it and disable nullable. 
+6- Add AutoMapper to API project from Nuget Gallery. When we are using APIs it is better to pass DTOs instead of the DB entity itself. 
+7- Install AutoMapper.Extensions.Microsoft.DependencyInjection from Nuget Gallery to API.
+8- Install Swashbuckle.AspNetCore.SwaggerUI to API.
+9- install Swashbuckle.AspNetCore.Annotations to API. 
+10- install Microsoft.AspNetCore.Authentication.JwtBearer to API.
+11- Install Microsoft.EntityFrameworkCore.SqlServer to API.
+12- INstall Microsoft.EntityFrameworkCore.Tools to API. (Same version of Above Package)
+13- Each Microservice has its own DB.
+14- Create a new folder with the name of DbContexts. 
+15- Add a new class into this folder and call it ApplicationDbContext and inherit this class from 
+DbContext.
+16- Add the DB service into program.cs:
+builder.Services.AddDbContext<ApplicationDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
+17- Add conection string into appsettings.json 
+*Important: TrustServerCertificate=True
+18- Add Model Folder and Product class.
+19- Add dbset into ApplicationDbContext .
+20- In PackageManger console we be sure that API is selected and then write: 
+add-migration [name]
+21- Then we write the command update-database.
+
